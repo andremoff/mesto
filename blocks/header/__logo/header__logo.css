@@ -1,0 +1,21 @@
+.header__logo {
+  color: white;
+  min-width: 103.74px;
+  min-height: 24.4px;
+  margin-left: 27px;
+  margin-bottom: 27.6px;
+}
+
+@media screen and (min-width: 934px) {
+  .header__logo {
+    margin-left: 0;
+    min-width: 142px;
+    min-height: 33px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .header__logo {
+    margin-bottom: 36px;
+  }
+}

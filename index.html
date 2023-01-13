@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Место</title>
+  <link rel="stylesheet" href="./pages/index.css" />
+</head>
+<body class="root">
+  <header class="header">
+    <img class="header__logo" src="./images/header-logo.svg" alt="Место Россия">
+  </header>
+  <main class="content">
+    <section class="profile">
+      <div class="profile__avatar">
+        <img class="profile__foto" src="./images/profile-foto.jpg" alt="Фото профиля">
+          <div class="profile__info">
+            <div class="profile__name-field">
+              <h1 class="profile__name">Жак-Ив Кусто</h1>
+              <button class="profile__btn-modify" id="popup-btn-open"></button>
+            </div>
+            <p class="profile__description">Исследователь океана</p>
+          </div>
+        </div>
+      <button type="submit" class="profile__button" id="profile-submit-btn"></button>
+    </section>
+    <section class="elements">
+      <figure class="elements__cards">
+        <img class="elements__foto" src="./images/elements-karachaevsk.jpg" alt="Карачаево-Черкессия">
+        <figcaption class="elements__caption">
+          <h2 class="elements__caption_title">Карачаево-Черкессия</h2>
+          <button class="elements__btn_heart"></button>
+        </figcaption>
+      </figure>
+      <figure class="elements__cards">
+        <img class="elements__foto" src="./images/elements-elbrus.jpg" alt="Гора Эльбрус">
+        <figcaption class="elements__caption">
+          <h2 class="elements__caption_title">Гора Эльбрус</h2>
+          <button class="elements__btn_heart"></button>
+        </figcaption>
+      </figure>
+      <figure class="elements__cards">
+        <img class="elements__foto" src="./images/elements-dombay.jpg" alt="Домбай">
+        <figcaption class="elements__caption">
+          <h2 class="elements__caption_title">Домбай</h2>
+          <button class="elements__btn_heart"></button>
+        </figcaption>
+      </figure>
+      <figure class="elements__cards">
+        <img class="elements__foto" src="./images/elements-baikal.jpg" alt="Байкал">
+        <figcaption class="elements__caption">
+          <h2 class="elements__caption_title">Байкал</h2>
+          <button class="elements__btn_heart"></button>
+        </figcaption>
+      </figure>
+      <figure class="elements__cards">
+        <img class="elements__foto" src="./images/elements-kamchatka.jpg" alt="Камчатка">
+        <figcaption class="elements__caption">
+          <h2 class="elements__caption_title">Камчатка</h2>
+          <button class="elements__btn_heart"></button>
+        </figcaption>
+      </figure>
+      <figure class="elements__cards">
+        <img class="elements__foto" src="./images/elements-karelia.jpg" alt="Карелия">
+        <figcaption class="elements__caption">
+          <h2 class="elements__caption_title">Карелия</h2>
+          <button class="elements__btn_heart"></button>
+        </figcaption>
+      </figure>
+    </section>
+  </main>
+  <footer class="footer">
+    <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
+  </footer>
+  <div class="popup" id="popup">
+    <div class="popup__body">
+      <div class="popup__content">
+        <button class="popup__btn-close" id="popup__btn-close">&#10006;</button>
+        <h2 class="popup__title">Редактировать профиль</h2>
+        <label class="popup__text">
+          <input type="text" class="popup__profile-name" id="profname" placeholder="Имя" required minlength="2" maxlength="50">
+        </label>
+        <label class="popup__text">
+          <input type="text" class="popup__profile-description" id="profdecription" placeholder="О себе" required minlength="2" maxlength="50">
+        </label>
+        <button type="submit" class="popup__btn-save">Сохранить</button>
+      </div>
+    </div>
+  </div>
+  <script src="./pages/index.js"></script>
+</body>
+</html>

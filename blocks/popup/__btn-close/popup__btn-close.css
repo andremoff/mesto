@@ -1,0 +1,29 @@
+.popup__btn-close {
+  width: 20px;
+  height: 20px;
+  text-decoration: none;
+  color: #FFFFFF;
+  font-size: 20px;
+  position: absolute;
+  top: -10%;
+  right: -1%;
+  padding: 0;
+  border: none;
+  background: repeat;
+  cursor: pointer;
+}
+
+.popup__btn-close:hover {
+  opacity: 0.6;
+  transition: all 1s;
+}
+
+@media screen and (min-width: 768px) {
+  .popup__btn-close {
+    width: 32px;
+    height: 32px;
+    top: -12%;
+    right: -10%;
+    font-size: xx-large;
+  }
+}

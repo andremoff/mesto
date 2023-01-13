@@ -1,0 +1,26 @@
+.elements__btn_heart {
+  min-width: 22px;
+  min-height: 19px;
+  background-image: url(../../../images/elements-heart.svg);
+  background-position: 50%;
+  background-size: cover;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  padding: 0;
+  margin: auto;
+  margin-left: 21px;
+  margin-right: 20px;
+  color: inherit;
+  font: inherit;
+  border: none;
+  cursor: pointer;
+}
+
+.elements__btn_heart-active {
+  background-image: url(../../../images/elements-heart-active.svg);
+}
+
+.elements__btn_heart:hover {
+  opacity: 0.5;
+  transition: all 0.8s;
+}
