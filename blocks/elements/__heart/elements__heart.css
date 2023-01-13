@@ -1,4 +1,4 @@
-.elements__btn_heart {
+.elements__heart {
   min-width: 22px;
   min-height: 19px;
   background-image: url(../../../images/elements-heart.svg);
@@ -16,11 +16,7 @@
   cursor: pointer;
 }
 
-.elements__btn_heart-active {
-  background-image: url(../../../images/elements-heart-active.svg);
-}
-
-.elements__btn_heart:hover {
+.elements__heart:hover {
   opacity: 0.5;
   transition: all 0.8s;
 }

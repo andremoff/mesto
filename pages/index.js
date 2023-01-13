@@ -33,11 +33,11 @@ profileBtnSubmit.addEventListener ('click', function(event) {
   popUp.classList.remove('popup__open');
 })
 
-const heartEnabled = document.querySelectorAll('.elements__btn_heart');
+const heartEnabled = document.querySelectorAll('.elements__heart');
 for(i=0; i<heartEnabled.length; i++) {
   heartEnabled[i].onclick = heartActive;
 }
 
 function heartActive() {
-  this.classList.toggle('elements__btn_heart-active');
+  this.classList.toggle('elements__heart-active');
 }
