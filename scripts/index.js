@@ -5,39 +5,25 @@ const profileName = document.querySelector('.profile__name');
 const profileDescription = document.querySelector('.profile__description');
 const popUpProfName = document.querySelector('.popup__profile-name');
 const popUpProfDesc = document.querySelector('.popup__profile-description');
-const profileBtnSubmit = document.querySelector('.popup__btn-save');
+const profileBtnSubmit = document.querySelector('.popup__text');
 
-openPopUp.addEventListener('click', function(e) {
-  e.preventDefault();
+function popUpOpen() {
   popUp.classList.add('popup__open');
   popUpProfName.value = profileName.textContent;
   popUpProfDesc.value = profileDescription.textContent;
-})
+}
 
-closePopUp.addEventListener('click', function(e) {
-  e.preventDefault();
+function popUpClose() {
   popUp.classList.remove('popup__open');
-})
+}
 
-popUp.addEventListener('click', function(event) {
-  event.preventDefault();
-  if (event.target === event.currentTarget) {
-    popUp.classList.remove('popup__open');
-  }
-})
-
-profileBtnSubmit.addEventListener ('click', function(event) {
-  event.preventDefault();
+function handleFormSubmit(evt) {
+  evt.preventDefault();
   profileName.textContent = `${popUpProfName.value}`;
   profileDescription.textContent = `${popUpProfDesc.value}`;
-  popUp.classList.remove('popup__open');
-})
-
-const heartEnabled = document.querySelectorAll('.elements__heart');
-for(i=0; i<heartEnabled.length; i++) {
-  heartEnabled[i].onclick = heartActive;
+  popUpClose();
 }
 
-function heartActive() {
-  this.classList.toggle('elements__heart-active');
-}
+openPopUp.addEventListener('click', popUpOpen);
+closePopUp.addEventListener('click', popUpClose);
+profileBtnSubmit.addEventListener('submit', handleFormSubmit);

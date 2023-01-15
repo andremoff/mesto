@@ -1,19 +1,18 @@
 .popup__btn-save {
-  font-family: 'Inter';
+  font-family: 'Inter', 'Arial', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 16.94px;
   text-align: center;
-  color:  #FFFFFF;
-  width: 238px;
-  height: 46px;
+  color: #FFFFFF;
+  min-width: 238px;
+  min-height: 46px;
   background: #000000;
   border-radius: 2px;
-  margin-top: 0;
+  margin: 0;
   margin-bottom: 25px;
-  margin-left: auto;
-  margin-right: auto;
+  padding: 0;
   cursor: pointer;
 }
 
@@ -25,8 +24,9 @@
 @media screen and (min-width: 768px) {
   .popup__btn-save {
     font-size: 18px;
-    line-height: 21.78px;
-    width: 358px;
-    height: 50px;
+    line-height: 22px;
+    min-width: 358px;
+    min-height: 50px;
+    margin-bottom: 35px;
   }
 }

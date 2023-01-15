@@ -1,17 +1,17 @@
 .profile__foto {
   border-radius: 50%;
-  width: 120px;
-  height: 120px;
+  max-width: 120px;
+  min-height: 120px;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 3.75px;
-  margin-bottom: 3.75px;
+  margin-top: 4px;
+  margin-bottom: 4px;
 }
 
 @media screen and (min-width: 768px) {
   .profile__foto {
-    margin-top: 3.75px;
-    margin-bottom: 3.75px;
-    margin-right: 26.25px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    margin-right: 26px;
   }
 }

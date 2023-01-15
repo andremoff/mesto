@@ -11,7 +11,7 @@
 
 @media screen and (min-width: 768px) {
   .elements {
-    margin-top: 47.25px;
+    margin-top: 47px;
     grid-template-columns: repeat(2, min-content);
     grid-template-rows: repeat(2, min-content);
     gap: 17px;
@@ -20,7 +20,7 @@
 
 @media screen and (min-width: 1024px) {
   .elements {
-    margin-top: 47.25px;
+    margin-top: 47px;
     grid-template-columns: repeat(3, min-content);
     grid-template-rows: repeat(3, min-content);
     gap: 20px 17px;

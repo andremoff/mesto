@@ -10,6 +10,7 @@
   background-color: black;
   border-color: white;
   border: 1px solid #FFFFFF;
+  cursor: pointer;
 }
 
 .profile__btn-modify:hover {
@@ -21,6 +22,6 @@
   .profile__btn-modify {
     min-width: 24px;
     min-height: 24px;
-    margin-left: 24px;
+    margin-left: 21px;
   }
 }

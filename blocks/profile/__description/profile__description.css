@@ -1,5 +1,5 @@
 .profile__description {
-  font-family: 'Inter';
+  font-family: 'Inter', 'Arial', sans-serif;
   font-style: normal;
   color: #FFFFFF;
   font-weight: 400;
@@ -14,29 +14,28 @@
   max-width: 282px;
 }
 
-@media screen and (min-width: 768px){
+@media screen and (min-width: 768px) {
   .profile__description {
     font-size: 15px;
-    line-height: 18.6px;
+    line-height: 19px;
     margin-top: 9px;
     text-align: start;
-    max-width: 370px;
+    max-width: 294px;
     margin: 0;
   }
 }
 
-@media screen and (min-width: 1024px){
+@media screen and (min-width: 1024px) {
   .profile__description {
     font-size: 16px;
-    line-height: 20.2px;
+    line-height: 20px;
     margin-top: 10px;
-    max-width: 500px;
   }
 }
 
-@media screen and (min-width: 1280px){
+@media screen and (min-width: 1280px) {
   .profile__description {
     font-size: 18px;
-    line-height: 21.78px;
+    line-height: 22px;
   }
 }

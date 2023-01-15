@@ -3,10 +3,11 @@
   font-weight: 900;
   src: url(../Fonts/Inter/Inter-Black.woff) format('woff'), url(../Fonts/Inter/Inter-Black.woff2) format('woff2');
 }
+
 @font-face {
   font-family: 'Inter';
-  font-weight: 700;
-  src: url(../Fonts/Inter/Inter-Bold.woff) format('woff'), url(../Fonts/Inter/Inter-Bold.woff2) format('woff2');
+  font-weight: 500;
+  src: url(../Fonts/Inter/Inter-Medium.woff) format('woff'), url(../Fonts/Inter/Inter-Medium.woff2) format('woff2');
 }
 
 @font-face {
