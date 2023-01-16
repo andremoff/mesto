@@ -1,4 +1,4 @@
-.popup__open {
+.popup_opened {
   opacity: 1;
   visibility: visible;
 }

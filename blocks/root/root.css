@@ -1,5 +1,5 @@
 .root {
-  background-color: #000000;
+  background-color: #000;
   font-family: 'Inter', 'Arial', sans-serif;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
@@ -19,17 +19,5 @@
   .root {
     margin-top: 45px;
     margin-bottom: 60px;
-  }
-}
-
-@media screen and (min-width: 1280px) {
-  .root {
-    margin-left: 200px;
-  }
-}
-
-@media screen and (min-width: 1288px) {
-  .root {
-    margin-left: auto;
   }
 }

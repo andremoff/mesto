@@ -15,59 +15,61 @@
   </header>
   <main class="content">
     <section class="profile">
-      <div class="profile__avatar">
+      <div class="profile__content">
         <img class="profile__foto" src="./images/profile-foto.jpg" alt="Фото профиля">
         <div class="profile__info">
           <div class="profile__name-field">
             <h1 class="profile__name">Жак-Ив Кусто</h1>
-            <button type="button" class="profile__btn-modify" id="popup-btn-open"></button>
+            <button type="button" class="profile__btn-modify" id="profile-edit-button"
+              aria-label="редактирование профиля"></button>
           </div>
           <p class="profile__description">Исследователь океана</p>
         </div>
       </div>
-      <button type="button" class="profile__button" id="profile-edit-btn"></button>
+      <button type="button" class="profile__add-button" id="profile-edit-btn"
+        aria-label="добавить фото с описанием"></button>
     </section>
     <section class="elements">
-      <div class="elements__cards">
-        <img class="elements__foto" src="./images/elements-karachaevsk.jpg" alt="Карачаево-Черкессия">
-        <div class="elements__caption">
-          <h2 class="elements__title">Карачаево-Черкессия</h2>
-          <button type="button" class="elements__heart"></button>
+      <div class="card">
+        <img class="card__foto" src="./images/elements-karachaevsk.jpg" alt="Карачаево-Черкессия">
+        <div class="card__caption">
+          <h2 class="card__title">Карачаево-Черкессия</h2>
+          <button type="button" class="card__heart" aria-label="лайк"></button>
         </div>
       </div>
-      <div class="elements__cards">
-        <img class="elements__foto" src="./images/elements-elbrus.jpg" alt="Гора Эльбрус">
-        <div class="elements__caption">
-          <h2 class="elements__title">Гора Эльбрус</h2>
-          <button type="button" class="elements__heart"></button>
+      <div class="card">
+        <img class="card__foto" src="./images/elements-elbrus.jpg" alt="Гора Эльбрус">
+        <div class="card__caption">
+          <h2 class="card__title">Гора Эльбрус</h2>
+          <button type="button" class="card__heart" aria-label="лайк"></button></button>
         </div>
       </div>
-      <div class="elements__cards">
-        <img class="elements__foto" src="./images/elements-dombay.jpg" alt="Домбай">
-        <div class="elements__caption">
-          <h2 class="elements__title">Домбай</h2>
-          <button type="button" class="elements__heart"></button>
+      <div class="card">
+        <img class="card__foto" src="./images/elements-dombay.jpg" alt="Домбай">
+        <div class="card__caption">
+          <h2 class="card__title">Домбай</h2>
+          <button type="button" class="card__heart" aria-label="лайк"></button></button>
         </div>
       </div>
-      <div class="elements__cards">
-        <img class="elements__foto" src="./images/elements-baikal.jpg" alt="Байкал">
-        <div class="elements__caption">
-          <h2 class="elements__title">Байкал</h2>
-          <button type="button" class="elements__heart"></button>
+      <div class="card">
+        <img class="card__foto" src="./images/elements-baikal.jpg" alt="Байкал">
+        <div class="card__caption">
+          <h2 class="card__title">Байкал</h2>
+          <button type="button" class="card__heart" aria-label="лайк"></button></button>
         </div>
       </div>
-      <div class="elements__cards">
-        <img class="elements__foto" src="./images/elements-kamchatka.jpg" alt="Камчатка">
-        <div class="elements__caption">
-          <h2 class="elements__title">Камчатка</h2>
-          <button type="button" class="elements__heart"></button>
+      <div class="card">
+        <img class="card__foto" src="./images/elements-kamchatka.jpg" alt="Камчатка">
+        <div class="card__caption">
+          <h2 class="card__title">Камчатка</h2>
+          <button type="button" class="card__heart" aria-label="лайк"></button></button>
         </div>
       </div>
-      <div class="elements__cards">
-        <img class="elements__foto" src="./images/elements-karelia.jpg" alt="Карелия">
-        <div class="elements__caption">
-          <h2 class="elements__title">Карелия</h2>
-          <button type="button" class="elements__heart"></button>
+      <div class="card">
+        <img class="card__foto" src="./images/elements-karelia.jpg" alt="Карелия">
+        <div class="card__caption">
+          <h2 class="card__title">Карелия</h2>
+          <button type="button" class="card__heart" aria-label="лайк"></button></button>
         </div>
       </div>
     </section>
@@ -78,14 +80,15 @@
   <div class="popup" id="popup">
     <div class="popup__content">
       <h2 class="popup__title">Редактировать профиль</h2>
-      <form class="popup__text">
-        <input type="text" class="popup__profile-name" id="profname" placeholder="Имя" required minlength="2"
-          maxlength="50">
-        <input type="text" class="popup__profile-description" id="profdecription" placeholder="О себе" required
+      <form class="popup__form" name="popup-form">
+        <input type="text" value class="popup__input popup__input_name" name="profname" placeholder="Имя" required
           minlength="2" maxlength="50">
+        <input type="text" value class="popup__input popup__input_decription" name="profdecription" placeholder="О себе"
+          required minlength="2" maxlength="50">
         <button type="submit" class="popup__btn-save">Сохранить</button>
-        <button type="button" class="popup__btn-close" id="popup__btn-close"></button>
       </form>
+      <button type="button" class="popup__btn-close" id="popup__btn-close"
+        aria-label="закрыть всплывающее окно"></button></button>
     </div>
   </div>
   <script src="./scripts/index.js"></script>

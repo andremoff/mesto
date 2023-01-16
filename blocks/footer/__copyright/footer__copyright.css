@@ -10,14 +10,14 @@
 
 @media screen and (min-width: 768px) {
   .footer__copyright {
-    font-size: 15.5px;
+    font-size: 15px;
     line-height: 19px;
   }
 }
 
 @media screen and (min-width: 1024px) {
   .footer__copyright {
-    font-size: 16.5px;
+    font-size: 16px;
     line-height: 21px;
   }
 }

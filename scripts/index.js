@@ -1,29 +1,29 @@
-const openPopUp = document.getElementById('popup-btn-open');
-const closePopUp = document.getElementById('popup__btn-close');
-const popUp = document.getElementById('popup');
+const openPopup = document.getElementById('profile-edit-button');
+const closePopup = document.getElementById('popup__btn-close');
+const popup = document.getElementById('popup');
 const profileName = document.querySelector('.profile__name');
 const profileDescription = document.querySelector('.profile__description');
-const popUpProfName = document.querySelector('.popup__profile-name');
-const popUpProfDesc = document.querySelector('.popup__profile-description');
-const profileBtnSubmit = document.querySelector('.popup__text');
+const popupName = document.querySelector('.popup__input_name');
+const popupDescription = document.querySelector('.popup__input_decription');
+const popupForm = document.querySelector('.popup__form');
 
-function popUpOpen() {
-  popUp.classList.add('popup__open');
-  popUpProfName.value = profileName.textContent;
-  popUpProfDesc.value = profileDescription.textContent;
+function popupOpen() {
+  popup.classList.add('popup_opened');
+  popupName.value = profileName.textContent;
+  popupDescription.value = profileDescription.textContent;
 }
 
-function popUpClose() {
-  popUp.classList.remove('popup__open');
+function popupClose() {
+  popup.classList.remove('popup_opened');
 }
 
 function handleFormSubmit(evt) {
   evt.preventDefault();
-  profileName.textContent = `${popUpProfName.value}`;
-  profileDescription.textContent = `${popUpProfDesc.value}`;
-  popUpClose();
+  profileName.textContent = popupName.value;
+  profileDescription.textContent = popupDescription.value;
+  popupClose();
 }
 
-openPopUp.addEventListener('click', popUpOpen);
-closePopUp.addEventListener('click', popUpClose);
-profileBtnSubmit.addEventListener('submit', handleFormSubmit);
+openPopup.addEventListener('click', popupOpen);
+closePopup.addEventListener('click', popupClose);
+popupForm.addEventListener('submit', handleFormSubmit);

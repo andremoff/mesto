@@ -2,14 +2,15 @@
   background-image: url(../../../images/profile-pen-btn-m.svg);
   background-repeat: no-repeat;
   background-position: 50% 50%;
+  background-size: 8px;
   min-width: 18px;
   min-height: 18px;
   margin: auto;
   margin-left: 10px;
   margin-right: 0;
-  background-color: black;
-  border-color: white;
-  border: 1px solid #FFFFFF;
+  background-color: #000;
+  border-color: #FFF;
+  border: 1px solid #FFF;
   cursor: pointer;
 }
 
@@ -23,5 +24,6 @@
     min-width: 24px;
     min-height: 24px;
     margin-left: 21px;
+    background-size: 10px;
   }
 }
