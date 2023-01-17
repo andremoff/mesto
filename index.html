@@ -30,48 +30,50 @@
         aria-label="добавить фото с описанием"></button>
     </section>
     <section class="elements">
-      <div class="card">
-        <img class="card__foto" src="./images/elements-karachaevsk.jpg" alt="Карачаево-Черкессия">
-        <div class="card__caption">
-          <h2 class="card__title">Карачаево-Черкессия</h2>
-          <button type="button" class="card__heart" aria-label="лайк"></button>
-        </div>
-      </div>
-      <div class="card">
-        <img class="card__foto" src="./images/elements-elbrus.jpg" alt="Гора Эльбрус">
-        <div class="card__caption">
-          <h2 class="card__title">Гора Эльбрус</h2>
-          <button type="button" class="card__heart" aria-label="лайк"></button>
-        </div>
-      </div>
-      <div class="card">
-        <img class="card__foto" src="./images/elements-dombay.jpg" alt="Домбай">
-        <div class="card__caption">
-          <h2 class="card__title">Домбай</h2>
-          <button type="button" class="card__heart" aria-label="лайк"></button>
-        </div>
-      </div>
-      <div class="card">
-        <img class="card__foto" src="./images/elements-baikal.jpg" alt="Байкал">
-        <div class="card__caption">
-          <h2 class="card__title">Байкал</h2>
-          <button type="button" class="card__heart" aria-label="лайк"></button>
-        </div>
-      </div>
-      <div class="card">
-        <img class="card__foto" src="./images/elements-kamchatka.jpg" alt="Камчатка">
-        <div class="card__caption">
-          <h2 class="card__title">Камчатка</h2>
-          <button type="button" class="card__heart" aria-label="лайк"></button>
-        </div>
-      </div>
-      <div class="card">
-        <img class="card__foto" src="./images/elements-karelia.jpg" alt="Карелия">
-        <div class="card__caption">
-          <h2 class="card__title">Карелия</h2>
-          <button type="button" class="card__heart" aria-label="лайк"></button>
-        </div>
-      </div>
+      <ul class="elements__list">
+        <li class="card">
+          <img class="card__foto" src="./images/elements-karachaevsk.jpg" alt="Карачаево-Черкессия">
+          <div class="card__caption">
+            <h2 class="card__title">Карачаево-Черкессия</h2>
+            <button type="button" class="card__heart" aria-label="лайк"></button>
+          </div>
+        </li>
+        <li class="card">
+          <img class="card__foto" src="./images/elements-elbrus.jpg" alt="Гора Эльбрус">
+          <div class="card__caption">
+            <h2 class="card__title">Гора Эльбрус</h2>
+            <button type="button" class="card__heart" aria-label="лайк"></button>
+          </div>
+        </li>
+        <li class="card">
+          <img class="card__foto" src="./images/elements-dombay.jpg" alt="Домбай">
+          <div class="card__caption">
+            <h2 class="card__title">Домбай</h2>
+            <button type="button" class="card__heart" aria-label="лайк"></button>
+          </div>
+        </li>
+        <li class="card">
+          <img class="card__foto" src="./images/elements-baikal.jpg" alt="Байкал">
+          <div class="card__caption">
+            <h2 class="card__title">Байкал</h2>
+            <button type="button" class="card__heart" aria-label="лайк"></button>
+          </div>
+        </li>
+        <li class="card">
+          <img class="card__foto" src="./images/elements-kamchatka.jpg" alt="Камчатка">
+          <div class="card__caption">
+            <h2 class="card__title">Камчатка</h2>
+            <button type="button" class="card__heart" aria-label="лайк"></button>
+          </div>
+        </li>
+        <li class="card">
+          <img class="card__foto" src="./images/elements-karelia.jpg" alt="Карелия">
+          <div class="card__caption">
+            <h2 class="card__title">Карелия</h2>
+            <button type="button" class="card__heart" aria-label="лайк"></button>
+          </div>
+        </li>
+      </ul>
     </section>
   </main>
   <footer class="footer">
@@ -81,10 +83,10 @@
     <div class="popup__content">
       <h2 class="popup__title">Редактировать профиль</h2>
       <form class="popup__form" name="popup-form">
-        <input type="text" value class="popup__input popup__input_name" name="profname" placeholder="Имя" required
+        <input type="text" value class="popup__input popup__input_data_name" name="profname" placeholder="Имя" required
           minlength="2" maxlength="50">
-        <input type="text" value class="popup__input popup__input_decription" name="profdecription" placeholder="О себе"
-          required minlength="2" maxlength="50">
+        <input type="text" value class="popup__input popup__input_data_decription" name="profdecription"
+          placeholder="О себе" required minlength="2" maxlength="50">
         <button type="submit" class="popup__btn-save">Сохранить</button>
       </form>
       <button type="button" class="popup__btn-close" id="popup__btn-close"

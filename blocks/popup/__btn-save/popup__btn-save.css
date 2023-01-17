@@ -9,6 +9,7 @@
   min-width: 238px;
   min-height: 46px;
   background: #000;
+  border: none;
   border-radius: 2px;
   margin: 0;
   margin-top: 13px;
@@ -29,6 +30,6 @@
     min-width: 358px;
     min-height: 50px;
     margin-top: 14px;
-    margin-bottom: 35px;
+    margin-bottom: 33px;
   }
 }

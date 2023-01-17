@@ -3,14 +3,14 @@ const closePopup = document.getElementById('popup__btn-close');
 const popup = document.getElementById('popup');
 const profileName = document.querySelector('.profile__name');
 const profileDescription = document.querySelector('.profile__description');
-const popupName = document.querySelector('.popup__input_name');
-const popupDescription = document.querySelector('.popup__input_decription');
 const popupForm = document.querySelector('.popup__form');
+const popupName = popupForm.querySelector('.popup__input_data_name');
+const popupDescription = popupForm.querySelector('.popup__input_data_decription');
 
 function popupOpen() {
-  popup.classList.add('popup_opened');
   popupName.value = profileName.textContent;
   popupDescription.value = profileDescription.textContent;
+  popup.classList.add('popup_opened');
 }
 
 function popupClose() {

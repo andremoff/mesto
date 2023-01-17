@@ -11,16 +11,6 @@
   padding: 0 0 12px 0;
   border-color: #FFF;
   border-style: none;
-  border-bottom: 1px solid rgba(84, 84, 84, 0.2);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   outline: none;
-}
-
-.popup__profile-name:focus {
-  outline: none;
-}
-
-@media screen and (min-width: 768px) {
-  .popup__profile-name {
-    min-width: 358px;
-  }
 }
