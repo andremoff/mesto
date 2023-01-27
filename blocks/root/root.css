@@ -14,3 +14,9 @@
   margin-top: 28px;
   margin-bottom: 36px;
 }
+
+@media screen and (min-width: 768px) {
+  .root {
+    margin-top: 45px;
+  }
+}
