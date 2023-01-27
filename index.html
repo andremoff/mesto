@@ -30,50 +30,7 @@
         aria-label="добавить фото с описанием"></button>
     </section>
     <section class="elements">
-      <ul class="elements__list">
-        <li class="card">
-          <img class="card__foto" src="./images/elements-karachaevsk.jpg" alt="Карачаево-Черкессия">
-          <div class="card__caption">
-            <h2 class="card__title">Карачаево-Черкессия</h2>
-            <button type="button" class="card__heart" aria-label="лайк"></button>
-          </div>
-        </li>
-        <li class="card">
-          <img class="card__foto" src="./images/elements-elbrus.jpg" alt="Гора Эльбрус">
-          <div class="card__caption">
-            <h2 class="card__title">Гора Эльбрус</h2>
-            <button type="button" class="card__heart" aria-label="лайк"></button>
-          </div>
-        </li>
-        <li class="card">
-          <img class="card__foto" src="./images/elements-dombay.jpg" alt="Домбай">
-          <div class="card__caption">
-            <h2 class="card__title">Домбай</h2>
-            <button type="button" class="card__heart" aria-label="лайк"></button>
-          </div>
-        </li>
-        <li class="card">
-          <img class="card__foto" src="./images/elements-baikal.jpg" alt="Байкал">
-          <div class="card__caption">
-            <h2 class="card__title">Байкал</h2>
-            <button type="button" class="card__heart" aria-label="лайк"></button>
-          </div>
-        </li>
-        <li class="card">
-          <img class="card__foto" src="./images/elements-kamchatka.jpg" alt="Камчатка">
-          <div class="card__caption">
-            <h2 class="card__title">Камчатка</h2>
-            <button type="button" class="card__heart" aria-label="лайк"></button>
-          </div>
-        </li>
-        <li class="card">
-          <img class="card__foto" src="./images/elements-karelia.jpg" alt="Карелия">
-          <div class="card__caption">
-            <h2 class="card__title">Карелия</h2>
-            <button type="button" class="card__heart" aria-label="лайк"></button>
-          </div>
-        </li>
-      </ul>
+      <ul class="elements__list"></ul>
     </section>
   </main>
   <footer class="footer">
@@ -93,6 +50,38 @@
         aria-label="закрыть всплывающее окно"></button>
     </div>
   </div>
+  <div class="popup" id="popup-add-foto">
+    <div class="popup__content">
+      <h2 class="popup__title">Новое место</h2>
+      <form class="popup__form" id="popup-form-foto">
+        <input type="text" value class="popup__input popup__input_data_caption" name="fotocaption"
+          placeholder="Название" required minlength="2" maxlength="50">
+        <input type="text" value class="popup__input popup__input_data_image" name="fotoimage"
+          placeholder="Ссылка на картинку" required minlength="2" maxlength="100">
+        <button type="submit" class="popup__btn-save" id="popup__btn-save-foto">Создать</button>
+      </form>
+      <button type="button" class="popup__btn-close" id="popup__btn-close-foto"
+        aria-label="закрыть всплывающее окно"></button>
+    </div>
+  </div>
+  <div class="popup" id="popup-foto-view">
+    <figure class="popup__figure">
+      <img class="figure__image" src="#" alt="#">
+      <figcaption class="figure__caption">#</figcaption>
+      <button type="button" class="popup__btn-close" id="popup__btn-close-foto-view"
+        aria-label="закрыть всплывающее окно"></button>
+    </figure>
+  </div>
+  <template class="template__card" id="template__card">
+    <li class="card" id="card">
+      <img class="card__foto">
+      <div class="card__caption">
+        <h2 class="card__title" id="card__title"></h2>
+        <button type="button" class="card__heart" aria-label="лайк"></button>
+      </div>
+      <button type="button" class="card__btn-delete" aria-label="удалить"></button>
+    </li>
+  </template>
   <script src="./scripts/index.js"></script>
 </body>
 

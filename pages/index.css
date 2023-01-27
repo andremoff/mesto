@@ -1,6 +1,6 @@
 @import url(../vendor/normalize.css);
 
-@import url(../vendor/Fonts/font.css);
+@import url(../vendor/fonts/font.css);
 
 @import url(../blocks/root/root.css);
 
@@ -27,6 +27,7 @@
 @import url(../blocks/card/__title/card__title.css);
 @import url(../blocks/card/__heart/card__heart.css);
 @import url(../blocks/card/__heart/_active/card__heart_active.css);
+@import url(../blocks/card/__btn-delete/card__btn-delete.css);
 
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__copyright/footer__copyright.css);
@@ -39,3 +40,6 @@
 @import url(../blocks/popup/__form/popup__form.css);
 @import url(../blocks/popup/__input/popup__input.css);
 @import url(../blocks/popup/__btn-save/popup__btn-save.css);
+@import url(../blocks/popup/__figure/popup__figure.css);
+@import url(../blocks/popup/__figure/__image/figure__image.css);
+@import url(../blocks/popup/__figure/__caption/figure__caption.css);
