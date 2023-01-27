@@ -1,4 +1,4 @@
-.figure__caption {
+.popup__figure-caption {
   font-family: 'Inter', 'Arial', sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -13,13 +13,13 @@
 }
 
 @media screen and (min-width: 768px) {
-  .figure__caption {
+  .popup__figure-caption {
     min-width: 433px;
   }
 }
 
 @media screen and (min-width: 1024px) {
-  .figure__caption {
+  .popup__figure-caption {
     min-width: 816px;
   }
 }

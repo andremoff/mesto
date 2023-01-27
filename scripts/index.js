@@ -67,8 +67,8 @@ function AddNewCard() {
   //Попап просмотр фото//
 
   const popupFotoView = document.getElementById('popup-foto-view');
-  const figureImage = document.querySelector('.figure__image');
-  const figureCaption = document.querySelector('.figure__caption');
+  const figureImage = document.querySelector('.popup__figure-image');
+  const figureCaption = document.querySelector('.popup__figure-caption');
   const cardFoto = cardElement.querySelector('.card__foto');
   const cardTitle = cardElement.querySelector('.card__title');
   popupViewClose.addEventListener('click', closeFotoViewPopup);
@@ -123,8 +123,8 @@ function renderCard({ name, link }) {
   //Попап просмотр фото//
 
   const popupFotoView = document.getElementById('popup-foto-view');
-  const figureImage = document.querySelector('.figure__image');
-  const figureCaption = document.querySelector('.figure__caption');
+  const figureImage = document.querySelector('.popup__figure-image');
+  const figureCaption = document.querySelector('.popup__figure-caption');
   const cardFoto = cardElement.querySelector('.card__foto');
   const cardTitle = cardElement.querySelector('.card__title');
   popupViewClose.addEventListener('click', closeFotoViewPopup);

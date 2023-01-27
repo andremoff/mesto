@@ -41,5 +41,5 @@
 @import url(../blocks/popup/__input/popup__input.css);
 @import url(../blocks/popup/__btn-save/popup__btn-save.css);
 @import url(../blocks/popup/__figure/popup__figure.css);
-@import url(../blocks/popup/__figure/__image/figure__image.css);
-@import url(../blocks/popup/__figure/__caption/figure__caption.css);
+@import url(../blocks/popup/__figure-image/popup__figure-image.css);
+@import url(../blocks/popup//__figure-caption/popup__figure-caption.css);
