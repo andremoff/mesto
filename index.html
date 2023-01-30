@@ -20,14 +20,12 @@
         <div class="profile__info">
           <div class="profile__name-field">
             <h1 class="profile__name">Жак-Ив Кусто</h1>
-            <button type="button" class="profile__btn-modify" id="profile-edit-button"
-              aria-label="редактирование профиля"></button>
+            <button type="button" class="profile__btn-modify" aria-label="редактирование профиля"></button>
           </div>
           <p class="profile__description">Исследователь океана</p>
         </div>
       </div>
-      <button type="button" class="profile__add-button" id="profile-edit-btn"
-        aria-label="добавить фото с описанием"></button>
+      <button type="button" class="profile__add-button" aria-label="добавить фото с описанием"></button>
     </section>
     <section class="elements">
       <ul class="elements__list"></ul>
@@ -36,43 +34,40 @@
   <footer class="footer">
     <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
   </footer>
-  <div class="popup" id="popup">
+  <div class="popup" id="popup-edit-profile">
     <div class="popup__content">
       <h2 class="popup__title">Редактировать профиль</h2>
-      <form class="popup__form" name="popup-form">
+      <form class="popup__form" name="profile-form">
         <input type="text" value class="popup__input popup__input_data_name" name="profname" placeholder="Имя" required
           minlength="2" maxlength="50">
         <input type="text" value class="popup__input popup__input_data_decription" name="profdecription"
           placeholder="О себе" required minlength="2" maxlength="50">
         <button type="submit" class="popup__btn-save">Сохранить</button>
       </form>
-      <button type="button" class="popup__btn-close" id="popup__btn-close"
-        aria-label="закрыть всплывающее окно"></button>
+      <button type="button" class="popup__close" aria-label="закрыть всплывающее окно"></button>
     </div>
   </div>
   <div class="popup" id="popup-add-foto">
     <div class="popup__content">
       <h2 class="popup__title">Новое место</h2>
-      <form class="popup__form" id="popup-form-foto">
+      <form class="popup__form" name="foto-form">
         <input type="text" value class="popup__input popup__input_data_caption" name="fotocaption"
           placeholder="Название" required minlength="2" maxlength="50">
-        <input type="text" value class="popup__input popup__input_data_image" name="fotoimage"
+        <input type="url" value class="popup__input popup__input_data_image" name="fotoimage"
           placeholder="Ссылка на картинку" required minlength="2" maxlength="100">
         <button type="submit" class="popup__btn-save" id="popup__btn-save-foto">Создать</button>
       </form>
-      <button type="button" class="popup__btn-close" id="popup__btn-close-foto"
-        aria-label="закрыть всплывающее окно"></button>
+      <button type="button" class="popup__close" aria-label="закрыть всплывающее окно"></button>
     </div>
   </div>
   <div class="popup" id="popup-foto-view">
     <figure class="popup__figure">
       <img class="popup__figure-image" src="#" alt="#">
       <figcaption class="popup__figure-caption"></figcaption>
-      <button type="button" class="popup__btn-close" id="popup__btn-close-foto-view"
-        aria-label="закрыть всплывающее окно"></button>
+      <button type="button" class="popup__close" aria-label="закрыть всплывающее окно"></button>
     </figure>
   </div>
-  <template class="template__card" id="template__card">
+  <template class="template__card">
     <li class="card" id="card">
       <img class="card__foto">
       <div class="card__caption">
