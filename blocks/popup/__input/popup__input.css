@@ -7,10 +7,11 @@
   color: #000;
   min-width: 238px;
   margin: 0;
-  margin-bottom: 30px;
+  margin-top: 30px;
   padding: 0 0 12px 0;
   border-color: #FFF;
   border-style: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   outline: none;
+  position: relative;
 }

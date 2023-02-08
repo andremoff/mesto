@@ -37,12 +37,16 @@
   <div class="popup" id="popup-edit-profile">
     <div class="popup__content">
       <h2 class="popup__title">Редактировать профиль</h2>
-      <form class="popup__form" name="profile-form">
-        <input type="text" value class="popup__input popup__input_data_name" name="profname" placeholder="Имя" required
-          minlength="2" maxlength="50">
-        <input type="text" value class="popup__input popup__input_data_decription" name="profdecription"
-          placeholder="О себе" required minlength="2" maxlength="50">
-        <button type="submit" class="popup__btn-save">Сохранить</button>
+      <form class="popup__form" name="profile-form" novalidate>
+        <fieldset class="popup__fieldset">
+          <input type="text" class="popup__input popup__input_data_name" id="name-input" placeholder="Имя" minlength="2"
+            maxlength="40" required>
+          <span class="popup__input-error name-input-error"></span>
+          <input type="text" class="popup__input popup__input_data_decription" id="decription-input"
+            placeholder="О себе" minlength="2" maxlength="200" required>
+          <span class="popup__input-error decription-input-error"></span>
+          <button type="submit" class="popup__btn-save">Сохранить</button>
+        </fieldset>
       </form>
       <button type="button" class="popup__close" aria-label="закрыть всплывающее окно"></button>
     </div>
@@ -50,12 +54,16 @@
   <div class="popup" id="popup-add-foto">
     <div class="popup__content">
       <h2 class="popup__title">Новое место</h2>
-      <form class="popup__form" name="foto-form">
-        <input type="text" value class="popup__input popup__input_data_caption" name="fotocaption"
-          placeholder="Название" required minlength="2" maxlength="50">
-        <input type="url" value class="popup__input popup__input_data_image" name="fotoimage"
-          placeholder="Ссылка на картинку" required minlength="2" maxlength="100">
-        <button type="submit" class="popup__btn-save" id="popup__btn-save-foto">Создать</button>
+      <form class="popup__form" name="foto-form" novalidate>
+        <fieldset class="popup__fieldset">
+          <input type="text" class="popup__input popup__input_data_caption" id="caption-input" placeholder="Название"
+            minlength="2" maxlength="30" required>
+          <span class="popup__input-error caption-input-error"></span>
+          <input type="url" class="popup__input popup__input_data_image" id="foto-input"
+            placeholder="Ссылка на картинку" required>
+          <span class="popup__input-error foto-input-error"></span>
+          <button type="submit" class="popup__btn-save" id="popup__btn-save-foto">Создать</button>
+        </fieldset>
       </form>
       <button type="button" class="popup__close" aria-label="закрыть всплывающее окно"></button>
     </div>
@@ -78,6 +86,7 @@
     </li>
   </template>
   <script src="./scripts/index.js"></script>
+  <script src="./scripts/validate.js"></script>
 </body>
 
 </html>

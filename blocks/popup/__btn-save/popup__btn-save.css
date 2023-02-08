@@ -12,10 +12,15 @@
   border: none;
   border-radius: 2px;
   margin: 0;
-  margin-top: 13px;
+  margin-top: 44px;
   margin-bottom: 25px;
   padding: 0;
   cursor: pointer;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
 }
 
 .popup__btn-save:hover {
@@ -29,7 +34,7 @@
     line-height: 22px;
     min-width: 358px;
     min-height: 50px;
-    margin-top: 14px;
+    margin-top: 44px;
     margin-bottom: 33px;
   }
 }

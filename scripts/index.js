@@ -3,6 +3,7 @@ const profilePopup = document.getElementById('popup-edit-profile');
 const profileName = document.querySelector('.profile__name');
 const profileDescription = document.querySelector('.profile__description');
 const profileForm = document.forms['profile-form'];
+const popupOverlays = document.querySelectorAll('.popup');
 const popupName = profileForm.querySelector('.popup__input_data_name');
 const popupDescription = profileForm.querySelector('.popup__input_data_decription');
 const profileAddBtn = document.querySelector('.profile__add-button');
@@ -134,10 +135,71 @@ function openProfilePopup() {
   openPopup(profilePopup);
 }
 
+//Проверка форм и подключение сообщений об ошибках//
+
+const hasInvalidInput = (inputList) => {
+  return inputList.some((inputElement) => {
+    return !inputElement.validity.valid;
+  });
+};
+
+const toggleButtonState = (inputList, buttonElement) => {
+  if (hasInvalidInput(inputList)) {
+    buttonElement.classList.add('popup__btn-save_inactive');
+  } else {
+    buttonElement.classList.remove('popup__btn-save_inactive');
+  }
+};
+
+const showInputError = (formElement, inputElement, errorMessage) => {
+  const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
+  if (errorElement) {
+    inputElement.classList.add('popup__input_type_error');
+    errorElement.textContent = errorMessage;
+    errorElement.classList.add('popup__input-error_active');
+  }
+};
+
+const hideInputError = (formElement, inputElement) => {
+  const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
+  inputElement.classList.remove('popup__input_type_error');
+  errorElement.classList.remove('popup__input-error_active');
+  errorElement.textContent = '';
+};
+
+const checkInputValidity = (formElement, inputElement) => {
+  if (!inputElement.validity.valid) {
+    showInputError(formElement, inputElement, inputElement.validationMessage);
+  } else {
+    hideInputError(formElement, inputElement);
+  }
+};
+
+const setEventListeners = (formElement) => {
+  const inputList = Array.from(formElement.querySelectorAll('.popup__input'));
+  const buttonElement = formElement.querySelector('.popup__btn-save');
+  toggleButtonState(inputList, buttonElement);
+
+  inputList.forEach((inputElement) => {
+    inputElement.addEventListener('input', function () {
+      checkInputValidity(formElement, inputElement);
+      toggleButtonState(inputList, buttonElement);
+    });
+  });
+};
+
 //Общие функции открытия и закрытия попап окон//
 
 function openPopup(popup) {
   popup.classList.add('popup_opened');
+  // Удалить сообщения об ошибках//
+  const inputList = Array.from(popup.querySelectorAll('.popup__input'));
+  inputList.forEach((inputElement) => {
+    hideInputError(popup, inputElement);
+  });
+  //Очистить форму окна "Новое место"//
+  popupFotoCaption.value = '';
+  popupFotoImage.value = '';
 }
 
 function closePopup(popup) {
@@ -149,6 +211,22 @@ function closePopup(popup) {
 closeButtons.forEach((button) => {
   const popup = button.closest('.popup');
   button.addEventListener('click', () => closePopup(popup));
+});
+
+//Закрытие через ESC и Оверлей//
+
+popupOverlays.forEach(function (popupOverlays) {
+  popupOverlays.addEventListener('click', function (evt) {
+    if (evt.target === popupOverlays) {
+      popupOverlays.classList.remove('popup_opened');
+    }
+  });
+
+  document.addEventListener('keydown', function (evt) {
+    if (evt.code === 'Escape') {
+      popupOverlays.classList.remove('popup_opened');
+    }
+  });
 });
 
 profileOpenBtn.addEventListener('click', openProfilePopup);
