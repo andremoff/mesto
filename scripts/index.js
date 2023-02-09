@@ -177,16 +177,28 @@ const checkInputValidity = (formElement, inputElement) => {
 
 const setEventListeners = (formElement) => {
   const inputList = Array.from(formElement.querySelectorAll('.popup__input'));
-  const buttonElement = formElement.querySelector('.popup__btn-save');
-  toggleButtonState(inputList, buttonElement);
+  const submitButtonSelector = formElement.querySelector('.popup__btn-save');
+  toggleButtonState(inputList, submitButtonSelector);
+
+  formElement.addEventListener('submit', (event) => {
+    if (hasInvalidInput(inputList)) {
+      event.preventDefault();
+    }
+  });
+
+  formElement.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter' && hasInvalidInput(inputList)) {
+      event.preventDefault();
+    }
+  });
 
   inputList.forEach((inputElement) => {
     inputElement.addEventListener('input', function () {
       checkInputValidity(formElement, inputElement);
-      toggleButtonState(inputList, buttonElement);
+      toggleButtonState(inputList, submitButtonSelector);
     });
   });
-};
+}
 
 //Общие функции открытия и закрытия попап окон//
 
