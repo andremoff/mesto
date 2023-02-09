@@ -18,6 +18,7 @@ const popupViewOpen = document.querySelector('card__foto');
 const cardPlace = document.querySelector('.elements__list');
 const templateCard = document.querySelector('.template__card').content;
 const closeButtons = document.querySelectorAll('.popup__close');
+const popupBtnSaveProfile = document.getElementById('popup__btn-save-profile');
 
 const initialCards = [
   {
@@ -133,6 +134,7 @@ function openProfilePopup() {
   popupName.value = profileName.textContent;
   popupDescription.value = profileDescription.textContent;
   openPopup(profilePopup);
+  popupBtnSaveProfile.classList.remove('popup__btn-save_inactive');
 }
 
 //Общие функции открытия и закрытия попап окон//
