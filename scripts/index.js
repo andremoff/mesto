@@ -137,65 +137,65 @@ function openProfilePopup() {
 
 //Проверка форм и подключение сообщений об ошибках//
 
-const hasInvalidInput = (inputList) => {
-  return inputList.some((inputElement) => {
-    return !inputElement.validity.valid;
+const hasInvalidInput = (inputSelector) => {
+  return inputSelector.some((inputErrorClass) => {
+    return !inputErrorClass.validity.valid;
   });
 };
 
-const toggleButtonState = (inputList, buttonElement) => {
-  if (hasInvalidInput(inputList)) {
-    buttonElement.classList.add('popup__btn-save_inactive');
+const toggleButtonState = (inputSelector, inactiveButtonClass) => {
+  if (hasInvalidInput(inputSelector)) {
+    inactiveButtonClass.classList.add('popup__btn-save_inactive');
   } else {
-    buttonElement.classList.remove('popup__btn-save_inactive');
+    inactiveButtonClass.classList.remove('popup__btn-save_inactive');
   }
 };
 
-const showInputError = (formElement, inputElement, errorMessage) => {
-  const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-  if (errorElement) {
-    inputElement.classList.add('popup__input_type_error');
-    errorElement.textContent = errorMessage;
-    errorElement.classList.add('popup__input-error_active');
+const showInputError = (formElement, inputErrorClass, errorMessage) => {
+  const errorClass = formElement.querySelector(`.${inputErrorClass.id}-error`);
+  if (errorClass) {
+    inputErrorClass.classList.add('popup__input_type_error');
+    errorClass.textContent = errorMessage;
+    errorClass.classList.add('popup__input-error_active');
   }
 };
 
-const hideInputError = (formElement, inputElement) => {
-  const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-  inputElement.classList.remove('popup__input_type_error');
-  errorElement.classList.remove('popup__input-error_active');
-  errorElement.textContent = '';
+const hideInputError = (formElement, inputErrorClass) => {
+  const errorClass = formElement.querySelector(`.${inputErrorClass.id}-error`);
+  inputErrorClass.classList.remove('popup__input_type_error');
+  errorClass.classList.remove('popup__input-error_active');
+  errorClass.textContent = '';
 };
 
-const checkInputValidity = (formElement, inputElement) => {
-  if (!inputElement.validity.valid) {
-    showInputError(formElement, inputElement, inputElement.validationMessage);
+const checkInputValidity = (formElement, inputErrorClass) => {
+  if (!inputErrorClass.validity.valid) {
+    showInputError(formElement, inputErrorClass, inputErrorClass.validationMessage);
   } else {
-    hideInputError(formElement, inputElement);
+    hideInputError(formElement, inputErrorClass);
   }
 };
 
 const setEventListeners = (formElement) => {
-  const inputList = Array.from(formElement.querySelectorAll('.popup__input'));
+  const inputSelector = Array.from(formElement.querySelectorAll('.popup__input'));
   const submitButtonSelector = formElement.querySelector('.popup__btn-save');
-  toggleButtonState(inputList, submitButtonSelector);
+  toggleButtonState(inputSelector, submitButtonSelector);
 
   formElement.addEventListener('submit', (event) => {
-    if (hasInvalidInput(inputList)) {
+    if (hasInvalidInput(inputSelector)) {
       event.preventDefault();
     }
   });
 
   formElement.addEventListener('keydown', (event) => {
-    if (event.key === 'Enter' && hasInvalidInput(inputList)) {
+    if (event.key === 'Enter' && hasInvalidInput(inputSelector)) {
       event.preventDefault();
     }
   });
 
-  inputList.forEach((inputElement) => {
-    inputElement.addEventListener('input', function () {
-      checkInputValidity(formElement, inputElement);
-      toggleButtonState(inputList, submitButtonSelector);
+  inputSelector.forEach((inputErrorClass) => {
+    inputErrorClass.addEventListener('input', function () {
+      checkInputValidity(formElement, inputErrorClass);
+      toggleButtonState(inputSelector, submitButtonSelector);
     });
   });
 }
@@ -205,9 +205,9 @@ const setEventListeners = (formElement) => {
 function openPopup(popup) {
   popup.classList.add('popup_opened');
   // Удалить сообщения об ошибках//
-  const inputList = Array.from(popup.querySelectorAll('.popup__input'));
-  inputList.forEach((inputElement) => {
-    hideInputError(popup, inputElement);
+  const inputSelector = Array.from(popup.querySelectorAll('.popup__input'));
+  inputSelector.forEach((inputErrorClass) => {
+    hideInputError(popup, inputErrorClass);
   });
   //Очистить форму окна "Новое место"//
   popupFotoCaption.value = '';

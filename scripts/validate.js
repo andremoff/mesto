@@ -1,14 +1,14 @@
 //Валидация форм//
 
 const enableValidation = () => {
-  const formList = Array.from(document.querySelectorAll(".popup__form"));
-  formList.forEach((formElement) => {
-    formElement.addEventListener("submit", function (evt) {
+  const formSelector = Array.from(document.querySelectorAll('.popup__form'));
+  formSelector.forEach((formElement) => {
+    formElement.addEventListener('submit', function (evt) {
       evt.preventDefault();
     });
 
     const fieldsetList = Array.from(
-      formElement.querySelectorAll(".popup__fieldset")
+      formElement.querySelectorAll('.popup__fieldset')
     );
     fieldsetList.forEach((fieldSet) => {
       setEventListeners(fieldSet);
@@ -16,4 +16,11 @@ const enableValidation = () => {
   });
 };
 
-enableValidation();
+enableValidation({
+  formSelector: '.popup__form',
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__btn-save',
+  inactiveButtonClass: 'popup__btn-save_inactive',
+  inputErrorClass: 'popup__input_type_error',
+  errorClass: 'popup__input-error_active'
+});
