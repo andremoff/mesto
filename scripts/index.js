@@ -91,7 +91,6 @@ function handleCardFormSubmit(evt) {
 }
 
 function openAddFotoPopup() {
-  reset(popupAddFoto);
   openPopup(popupAddFoto);
   popupFotoCaption.value = '';
   popupFotoImage.value = '';
@@ -153,12 +152,13 @@ popupOverlays.forEach(function (popupOverlays) {
   });
 });
 
-//Функция сброса ошибок в формах//
-
-function reset(popup) {
-  const inputSelectors = Array.from(popup.querySelectorAll('.popup__input'));
-  inputSelectors.forEach((inputErrorClass) => {
-    hideInputError(popup, inputErrorClass);
+function reset(form) {
+  const inputSelectors = Array.from(form.querySelectorAll('.popup__input'));
+  inputSelectors.forEach((input) => {
+    input.classList.remove('popup__input_type_error');
+    const errorElement = form.querySelector(`.${input.id}-error`);
+    errorElement.classList.remove('popup__input-error_active');
+    errorElement.textContent = '';
   });
 }
 
