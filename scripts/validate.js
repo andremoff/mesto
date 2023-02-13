@@ -1,3 +1,17 @@
+// Функция блокировки кнопки
+
+const toggleButtonState = (submitButton, inactiveButtonClass) => {
+  submitButton.classList.add(inactiveButtonClass);
+  submitButton.setAttribute('disabled', true);
+};
+
+// Функция разблокировки кнопки
+
+const unToggleButtonState = (submitButton, inactiveButtonClass) => {
+  submitButton.classList.remove(inactiveButtonClass);
+  submitButton.removeAttribute('disabled');
+};
+
 //Валидация форм//
 
 const enableValidation = ({
@@ -16,11 +30,11 @@ const enableValidation = ({
     });
   };
 
-  const toggleButtonState = (inputs, submitButton) => {
+  const toggleButton = (inputs, submitButton) => {
     if (hasInvalidInput(inputs)) {
-      submitButton.classList.add(inactiveButtonClass);
+      toggleButtonState(submitButton, inactiveButtonClass);
     } else {
-      submitButton.classList.remove(inactiveButtonClass);
+      unToggleButtonState(submitButton, inactiveButtonClass);
     }
   };
 
@@ -61,7 +75,7 @@ const enableValidation = ({
     inputs.forEach(input => {
       input.addEventListener('input', () => {
         checkInputValidity(input);
-        toggleButtonState(inputs, submitButton);
+        toggleButton(inputs, submitButton);
       });
     });
 

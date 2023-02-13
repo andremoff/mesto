@@ -19,6 +19,7 @@ const cardPlace = document.querySelector('.elements__list');
 const templateCard = document.querySelector('.template__card').content;
 const closeButtons = document.querySelectorAll('.popup__close');
 const popupBtnSaveProfile = document.getElementById('popup__btn-save-profile');
+const popupBtnSaveFoto = document.getElementById('popup__btn-save-foto');
 
 //Форма для новой карточки//
 
@@ -88,12 +89,16 @@ function handleCardFormSubmit(evt) {
   cardPlace.insertBefore(cardElement, cardPlace.firstChild);
   closePopup(popupAddFoto);
   evt.target.reset();
+  document.removeEventListener('keydown', handleEscapeKey);
+  reset(popupAddFoto);
 }
 
 function openAddFotoPopup() {
   openPopup(popupAddFoto);
-  popupFotoCaption.value = '';
-  popupFotoImage.value = '';
+  popupFormFoto.reset();
+  document.addEventListener('keydown', handleEscapeKey);
+  reset(popupAddFoto);
+  popupBtnSaveFoto.classList.add('popup__btn-save_inactive');
 }
 
 //Попап "Редактировать профиль"//
@@ -102,6 +107,8 @@ function handleProfileFormSubmit(evt) {
   evt.preventDefault();
   profileName.textContent = popupName.value;
   profileDescription.textContent = popupDescription.value;
+  document.removeEventListener('keydown', handleEscapeKey);
+  reset(profilePopup);
   closePopup(profilePopup);
 }
 
@@ -110,20 +117,18 @@ function openProfilePopup() {
   popupDescription.value = profileDescription.textContent;
   openPopup(profilePopup);
   popupBtnSaveProfile.classList.remove('popup__btn-save_inactive');
+  document.addEventListener('keydown', handleEscapeKey);
+  reset(profilePopup);
 }
 
 //Общие функции открытия и закрытия попап окон//
 
 function openPopup(popup) {
   popup.classList.add('popup_opened');
-  document.addEventListener('keydown', handleEscapeKey);
-  reset(popup);
 }
 
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
-  document.removeEventListener('keydown', handleEscapeKey);
-  reset(popup);
 }
 
 //Единая кнопка закрытия попап//
