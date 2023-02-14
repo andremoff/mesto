@@ -111,6 +111,9 @@ const enableValidation = ({
     setEventListeners(form);
   });
 
+  resetForm(forms[0]);
+  window.resetForm = resetForm;
+
   //Закрытие окна через ESC//
 
   document.addEventListener('keydown', (event) => {
