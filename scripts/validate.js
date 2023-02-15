@@ -1,18 +1,18 @@
-// Функция блокировки кнопки
+//Функция блокировки кнопки//
 
 const toggleButtonState = (submitButton, inactiveButtonClass) => {
   submitButton.classList.add(inactiveButtonClass);
   submitButton.setAttribute('disabled', true);
 };
 
-// Функция разблокировки кнопки
+//Функция разблокировки кнопки//
 
 const unToggleButtonState = (submitButton, inactiveButtonClass) => {
   submitButton.classList.remove(inactiveButtonClass);
   submitButton.removeAttribute('disabled');
 };
 
-//Валидация форм//
+//Валидация формы//
 
 const enableValidation = ({
   formSelector,
@@ -42,7 +42,7 @@ const enableValidation = ({
     }
   };
 
-  //Добавляем подчеркивание и сообщение об ошибке//
+  //Показываем подчеркивание и сообщение об ошибке//
 
   const showInputError = (input, errorElement) => {
     input.classList.add(inputErrorClass);
@@ -58,39 +58,45 @@ const enableValidation = ({
     errorElement.textContent = '';
   };
 
-  //Сброс форм об ошибке//
+  //Сброс формы от ошибок//
 
-  const resetForm = form => {
-    const inputSelectors = Array.from(form.querySelectorAll('.popup__input'));
-    const errorElements = Array.from(form.querySelectorAll('.popup__input-error'));
-    inputSelectors.forEach((input, index) => {
+  const resetForm = (form) => {
+    const inputElements = Array.from(form.querySelectorAll(inputSelector));
+    const errorElements = inputElements.map(input => form.querySelector(`.${input.id}-error`));
+    const submitButton = form.querySelector(submitButtonSelector);
+
+    inputElements.forEach((input, index) => {
       hideInputError(input, errorElements[index]);
     });
-    const submitButton = form.querySelector(submitButtonSelector);
+
     unToggleButtonState(submitButton, inactiveButtonClass);
   };
 
-  //Проверка валидности введенных данных//
+  //Слушатели на поля ввода, кнопки и саму форму//
 
-  const checkInputValidity = input => {
-    const errorElement = input.closest(formSelector).querySelector(`.${input.id}-error`);
-    if (!input.validity.valid) {
-      showInputError(input, errorElement);
-    } else {
-      hideInputError(input, errorElement);
-    }
-  };
-
-  //Слушатель на поля ввода, кнопки и самой формы//
-
-  const setEventListeners = form => {
+  const setEventListeners = (form) => {
     const inputs = Array.from(form.querySelectorAll(inputSelector));
     const submitButton = form.querySelector(submitButtonSelector);
+
+    const toggleButtonStateOnInputs = () => {
+      toggleButton(inputs, submitButton);
+    };
+
+    //Проверка валидности введенных данных//
+
+    const checkInputValidity = (input) => {
+      const errorElement = input.closest(formSelector).querySelector(`.${input.id}-error`);
+      if (!input.validity.valid) {
+        showInputError(input, errorElement);
+      } else {
+        hideInputError(input, errorElement);
+      }
+      toggleButtonStateOnInputs();
+    };
 
     inputs.forEach(input => {
       input.addEventListener('input', () => {
         checkInputValidity(input);
-        toggleButton(inputs, submitButton);
       });
     });
 
@@ -113,17 +119,6 @@ const enableValidation = ({
 
   resetForm(forms[0]);
   window.resetForm = resetForm;
-
-  //Закрытие окна через ESC//
-
-  document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape') {
-      const openedPopup = document.querySelector('.popup_opened');
-      if (openedPopup) {
-        closePopup(openedPopup);
-      }
-    }
-  });
 };
 
 enableValidation({

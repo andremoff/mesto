@@ -117,10 +117,12 @@ function openProfilePopup() {
 
 function openPopup(popup) {
   popup.classList.add('popup_opened');
+  document.addEventListener('keydown', handleEscapeKey);
 }
 
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
+  document.removeEventListener('keydown', handleEscapeKey);
 }
 
 //Единая кнопка закрытия попап//
@@ -139,6 +141,17 @@ popupOverlays.forEach(function (popupOverlays) {
     }
   });
 });
+
+//Закрытие окна через ESC//
+
+function handleEscapeKey(evt) {
+  if (evt.code === 'Escape') {
+    const openedPopup = document.querySelector('.popup_opened');
+    if (openedPopup) {
+      closePopup(openedPopup);
+    }
+  }
+}
 
 profileOpenBtn.addEventListener('click', openProfilePopup);
 profileForm.addEventListener('submit', handleProfileFormSubmit);
