@@ -41,7 +41,7 @@ export default class FormValidator {
   }
 
   //Сброс формы от ошибок//
-  _resetForm() {
+  resetForm() {
     this._inputList.forEach(inputElement => {
       const errorElement = this._formElement.querySelector(`.${inputElement.id}-error`);
       this._hideInputError(inputElement, errorElement);

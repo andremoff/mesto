@@ -1,28 +1,37 @@
 // Импорт класса //
 import FormValidator, { settings } from './FormValidator.js';
-import Card from './Cards.js';
+import {
+  popupOverlays, profileForm, popupName, popupDescription, profileAddBtn, profileOpenBtn, profilePopup, profileName, profileDescription,
+  popupAddFoto, popupFormFoto, popupFotoCaption, popupFotoImage, closeButtons, cardPlace
+} from './utils/utils.js';
+import Card from './Card.js';
 
-const profileOpenBtn = document.querySelector('.profile__btn-modify');
-const profilePopup = document.getElementById('popup-edit-profile');
-const profileName = document.querySelector('.profile__name');
-const profileDescription = document.querySelector('.profile__description');
-const profileForm = document.forms['profile-form'];
-const popupOverlays = document.querySelectorAll('.popup');
-const popupName = profileForm.querySelector('.popup__input_data_name');
-const popupDescription = profileForm.querySelector('.popup__input_data_decription');
-const profileAddBtn = document.querySelector('.profile__add-button');
-const popupAddFoto = document.getElementById('popup-add-foto');
-const popupFormFoto = document.forms['foto-form'];
-const popupFotoCaption = popupFormFoto.querySelector('.popup__input_data_caption');
-const popupFotoImage = popupFormFoto.querySelector('.popup__input_data_image');
-export const popupFotoView = document.getElementById('popup-foto-view');
-export const figureImage = document.querySelector('.popup__figure-image');
-export const figureCaption = document.querySelector('.popup__figure-caption');
-export const cardPlace = document.querySelector('.elements__list');
-export const templateCard = document.querySelector('.template__card').content;
-const closeButtons = document.querySelectorAll('.popup__close');
-const popupBtnSaveProfile = document.getElementById('popup__btn-save-profile');
-const popupBtnSaveFoto = document.getElementById('popup__btn-save-foto');
+const initialCards = [
+  {
+    name: 'Архыз',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+  },
+  {
+    name: 'Челябинская область',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
+  },
+  {
+    name: 'Иваново',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
+  },
+  {
+    name: 'Камчатка',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
+  },
+  {
+    name: 'Холмогорский район',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
+  },
+  {
+    name: 'Байкал',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
+  }
+];
 
 //Попап "Редактировать профиль"//
 function handleProfileFormSubmit(evt) {
@@ -30,15 +39,14 @@ function handleProfileFormSubmit(evt) {
   profileName.textContent = popupName.value;
   profileDescription.textContent = popupDescription.value;
   closePopup(profilePopup);
-  formValidatorProfile._resetForm();
+  profilePopupValidator.resetForm();
 }
 
 function openProfilePopup() {
   popupName.value = profileName.textContent;
   popupDescription.value = profileDescription.textContent;
   openPopup(profilePopup);
-  popupBtnSaveProfile.classList.remove('popup__btn-save_inactive');
-  formValidatorProfile._resetForm();
+  profilePopupValidator.resetForm();
 }
 
 //Попап "Новое место"//
@@ -51,13 +59,12 @@ function handleCardFormSubmit(evt) {
   const cardElement = card.generateCard();
   cardPlace.prepend(cardElement);
   closePopup(popupAddFoto);
-  formValidatorFoto._resetForm(popupAddFoto);
+  popupAddFotoValidator.resetForm(popupAddFoto);
 }
 
 function openAddFotoPopup() {
   openPopup(popupAddFoto);
-  formValidatorFoto._resetForm(popupAddFoto);
-  popupBtnSaveFoto.classList.add('popup__btn-save_inactive');
+  popupAddFotoValidator.resetForm(popupAddFoto);
   popupFotoCaption.value = '';
   popupFotoImage.value = '';
 }
@@ -81,7 +88,7 @@ closeButtons.forEach((button) => {
 
 //Закрытие через Оверлей//
 popupOverlays.forEach(function (popupOverlays) {
-  popupOverlays.addEventListener('click', function (evt) {
+  popupOverlays.addEventListener('mousedown', function (evt) {
     if (evt.target === popupOverlays) {
       closePopup(popupOverlays);
     }
@@ -104,12 +111,22 @@ profileForm.addEventListener('submit', handleProfileFormSubmit);
 profileAddBtn.addEventListener('click', openAddFotoPopup);
 popupFormFoto.addEventListener('submit', handleCardFormSubmit);
 
+//Рендер карточки//
+function renderCard(item, cardContainer) {
+  const card = new Card(item, '.template__card');
+  const cardElement = card.generateCard();
+  cardContainer.prepend(cardElement);
+}
+
+//Вызов функции для каждой карточки//
+initialCards.forEach((item) => {
+  renderCard(item, cardPlace);
+});
+
 //Валидация формы "Редактировать профиль"//
 const profilePopupValidator = new FormValidator(settings, profilePopup);
-const formValidatorProfile = new FormValidator(settings, document.forms['profile-form']);
 profilePopupValidator.enableValidation();
 
 //Валидация формы "Новое место"//
 const popupAddFotoValidator = new FormValidator(settings, popupAddFoto);
-const formValidatorFoto = new FormValidator(settings, document.forms['foto-form']);
 popupAddFotoValidator.enableValidation();
