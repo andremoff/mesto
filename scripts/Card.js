@@ -1,12 +1,12 @@
-import { figureImage, figureCaption, popupFotoView } from './utils/utils.js';
-import { openPopup } from './index.js';
+import { figureImage, figureCaption } from './utils/utils.js';
 
 //Класс для создания карточки//
 export default class Card {
-  constructor(item, cardSelector) {
+  constructor(item, cardSelector, handleCardClick) {
     this._name = item.name;
     this._link = item.link;
     this._cardSelector = cardSelector;
+    this._handleCardClick = handleCardClick;
   }
 
   _getTemplate() {
@@ -36,8 +36,7 @@ export default class Card {
 
   _setEventListeners() {
     this._cardBtnDelete.addEventListener('click', () => {
-      this._element.remove();
-      this._element = null;
+      this.deleteCard();
     });
 
     this._heartEnabled.addEventListener('click', () => {
@@ -45,10 +44,10 @@ export default class Card {
     });
 
     this._cardFoto.addEventListener('click', () => {
+      this._handleCardClick(this._name, this._link);
       figureImage.src = this._link;
       figureImage.alt = this._name;
       figureCaption.textContent = this._name;
-      openPopup(popupFotoView);
     });
   }
 

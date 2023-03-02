@@ -1,8 +1,8 @@
 // Импорт класса //
 import FormValidator, { settings } from './FormValidator.js';
 import {
-  popupOverlays, profileForm, popupName, popupDescription, profileAddBtn, profileOpenBtn, profilePopup, profileName, profileDescription,
-  popupAddFoto, popupFormFoto, popupFotoCaption, popupFotoImage, closeButtons, cardPlace
+  popupOverlays, profileForm, popupName, popupDescription, profileOpenBtn, profilePopup, profileName, profileDescription,
+  popupAddFoto, popupFormFoto, popupFotoCaption, popupFotoImage, closeButtons, cardPlace, popupFotoView, profileAddBtn
 } from './utils/utils.js';
 import Card from './Card.js';
 
@@ -55,22 +55,30 @@ function handleCardFormSubmit(evt) {
   const link = popupFotoImage.value;
   const name = popupFotoCaption.value;
   const newCard = { link: link, name: name };
-  const card = new Card(newCard, '.template__card');
+  const card = new Card(newCard, '.template__card', handleCardClick);
   const cardElement = card.generateCard();
   cardPlace.prepend(cardElement);
   closePopup(popupAddFoto);
-  popupAddFotoValidator.resetForm(popupAddFoto);
+  popupAddFotoValidator.resetForm();
 }
 
 function openAddFotoPopup() {
   openPopup(popupAddFoto);
-  popupAddFotoValidator.resetForm(popupAddFoto);
   popupFotoCaption.value = '';
   popupFotoImage.value = '';
+  popupAddFotoValidator.resetForm();
+}
+
+//Попап просмотр фото//
+function handleCardClick(name, link) {
+  popupFotoImage.src = link;
+  popupFotoImage.alt = name;
+  popupFotoCaption.textContent = name;
+  openPopup(popupFotoView);
 }
 
 //Общие функции открытия и закрытия попап окон//
-export function openPopup(popup) {
+function openPopup(popup) {
   popup.classList.add('popup_opened');
   document.addEventListener('keydown', handleEscapeKey);
 }
@@ -113,15 +121,13 @@ popupFormFoto.addEventListener('submit', handleCardFormSubmit);
 
 //Рендер карточки//
 function renderCard(item, cardContainer) {
-  const card = new Card(item, '.template__card');
+  const card = new Card(item, '.template__card', handleCardClick);
   const cardElement = card.generateCard();
   cardContainer.prepend(cardElement);
 }
 
 //Вызов функции для каждой карточки//
-initialCards.forEach((item) => {
-  renderCard(item, cardPlace);
-});
+initialCards.forEach(item => renderCard(item, cardPlace));
 
 //Валидация формы "Редактировать профиль"//
 const profilePopupValidator = new FormValidator(settings, profilePopup);
