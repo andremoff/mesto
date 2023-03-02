@@ -123,7 +123,7 @@ popupFormFoto.addEventListener('submit', handleCardFormSubmit);
 function renderCard(item, cardContainer) {
   const card = new Card(item, '.template__card', handleCardClick);
   const cardElement = card.generateCard();
-  cardContainer.prepend(cardElement);
+  cardContainer.append(cardElement);
 }
 
 //Вызов функции для каждой карточки//
