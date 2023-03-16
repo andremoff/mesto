@@ -1,4 +1,4 @@
-import { figureImage, figureCaption } from './utils/utils.js';
+import { figureImage, figureCaption } from '../utils/utils.js';
 
 //Класс для создания карточки//
 export default class Card {
