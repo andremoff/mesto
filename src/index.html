@@ -38,11 +38,11 @@
       <h2 class="popup__title">Редактировать профиль</h2>
       <form class="popup__form" name="profile-form" novalidate>
         <fieldset class="popup__fieldset">
-          <input type="text" class="popup__input popup__input_data_name" id="name-input" placeholder="Имя" minlength="2"
-            maxlength="40" required>
+          <input type="text" class="popup__input popup__input_data_name" id="name-input" name="userName"
+            placeholder="Имя" minlength="2" maxlength="40" required>
           <span class="popup__input-error name-input-error"></span>
-          <input type="text" class="popup__input popup__input_data_decription" id="decription-input"
-            placeholder="О себе" minlength="2" maxlength="200" required>
+          <input type="text" class="popup__input popup__input_data_description" id="decription-input"
+            name="userDescription" placeholder="О себе" minlength="2" maxlength="200" required>
           <span class="popup__input-error decription-input-error"></span>
           <button type="submit" class="popup__btn-save" id="popup__btn-save-profile">Сохранить</button>
         </fieldset>
@@ -55,10 +55,10 @@
       <h2 class="popup__title">Новое место</h2>
       <form class="popup__form" name="foto-form" novalidate>
         <fieldset class="popup__fieldset">
-          <input type="text" class="popup__input popup__input_data_caption" id="caption-input" placeholder="Название"
-            minlength="2" maxlength="30" required>
+          <input type="text" class="popup__input popup__input_data_caption" id="caption-input" name="caption-input"
+            placeholder="Название" minlength="2" maxlength="30" required>
           <span class="popup__input-error caption-input-error"></span>
-          <input type="url" class="popup__input popup__input_data_image" id="foto-input"
+          <input type="url" class="popup__input popup__input_data_image" id="foto-input" name="foto-input"
             placeholder="Ссылка на картинку" required>
           <span class="popup__input-error foto-input-error"></span>
           <button type="submit" class="popup__btn-save" id="popup__btn-save-foto">Создать</button>

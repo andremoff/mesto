@@ -1,5 +1,3 @@
-import { figureImage, figureCaption } from '../utils/utils.js';
-
 //Класс для создания карточки//
 export default class Card {
   constructor(item, cardSelector, handleCardClick) {
@@ -45,9 +43,6 @@ export default class Card {
 
     this._cardFoto.addEventListener('click', () => {
       this._handleCardClick(this._name, this._link);
-      figureImage.src = this._link;
-      figureImage.alt = this._name;
-      figureCaption.textContent = this._name;
     });
   }
 

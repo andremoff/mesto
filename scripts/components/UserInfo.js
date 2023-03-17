@@ -1,21 +1,20 @@
 export default class UserInfo {
-  constructor({ nameSelector, infoSelector }) {
-    this._userName = document.querySelector(nameSelector);
-    this._userDescription = document.querySelector(infoSelector);
+  constructor({ userName, userDescription }) {
+    this._userName = document.querySelector(userName);
+    this._userDescription = document.querySelector(userDescription);
   }
 
   // Возвращает объект с данными пользователя
   getUserInfo() {
-    const name = this._userName.textContent;
-    const description = this._userDescription.textContent;
-    return { name, description };
+    return {
+      userName: this._userName.textContent,
+      userDescription: this._userDescription.textContent
+    };
   }
 
   // Принимает новые данные пользователя и добавляет их на страницу
-  setUserInfo({ name, description }) {
-    if (name && description) {
-      this._userName.textContent = name;
-      this._userDescription.textContent = description;
-    }
+  setUserInfo(inputValues) {
+    this._userName.textContent = inputValues.name;
+    this._userDescription.textContent = inputValues.description;
   }
 }
