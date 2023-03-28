@@ -2,7 +2,7 @@
   margin-top: 32px;
   min-width: 282px;
   height: 50px;
-  background-image: url(../../../images/profile-cross.svg);
+  background-image: url(../../../src/images/profile-cross.svg);
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-color: #000;

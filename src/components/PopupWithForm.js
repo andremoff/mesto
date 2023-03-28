@@ -27,6 +27,7 @@ export default class PopupWithForm extends Popup {
       this._submitInputForm(this._getInputValues());
     });
   }
+
   // Закрывает всплывающее окно, и сбрасывает значения полей формы //
   close() {
     super.close();

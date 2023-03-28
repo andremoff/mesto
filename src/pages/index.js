@@ -1,20 +1,30 @@
 import '../../src/index.css';
 
 // Импорт классов //
-import Card from '../../scripts/components/Card.js';
-import FormValidator, { settings } from '../../scripts/components/FormValidator.js';
-import PopupWithForm from '../../scripts/components/PopupWithForm.js';
-import PopupWithImage from '../../scripts/components/PopupWithImage.js';
-import PopupWithSubmit from '../../scripts/components/PopupWithSubmit';
-import Section from '../../scripts/components/Section.js';
-import UserInfo from '../../scripts/components/UserInfo.js';
-import api from '../../scripts/components/Api';
+import Api from '../components/Api.js';
+import Card from '../components/Card.js';
+import FormValidator from '../components/FormValidator.js';
+import PopupWithForm from '../components/PopupWithForm.js';
+import PopupWithImage from '../components/PopupWithImage.js';
+import PopupWithSubmit from '../components/PopupWithSubmit.js';
+import Section from '../components/Section.js';
+import UserInfo from '../components/UserInfo.js';
 
 // Импорт переменных //
 import {
   popupName, popupDescription, profileAddBtn, profileOpenBtn,
-  profilePopup, popupAvatar, profileEditAvatar, popupAddFoto
-} from '../../scripts/utils/constants.js';
+  profilePopup, popupAvatar, profileEditAvatar, popupAddFoto,
+} from '../utils/constants.js';
+import { settings } from '../utils/constants.js';
+
+// Подключение к серверу //
+const api = new Api({
+  mainUrl: 'https://mesto.nomoreparties.co/v1/cohort-63',
+  headers: {
+    authorization: '844ed018-969b-42d1-ba36-a0d35313dedc',
+    'Content-Type': 'application/json'
+  }
+});
 
 // Загрузка карточек с сервера //
 let userId
@@ -117,8 +127,10 @@ popupEditProfile.setEventListeners();
 function openProfilePopup() {
   api.getUserInfo()
     .then((userData) => {
-      popupName.value = userData.name;
-      popupDescription.value = userData.about;
+      userInfo.setUserInfo(userData);
+      const userInfoData = userInfo.getUserInfo();
+      popupName.value = userInfoData.userName;
+      popupDescription.value = userInfoData.userDescription;
       popupEditProfile.open();
       profilePopupValidator.resetForm();
     })
@@ -132,7 +144,7 @@ const popupEditAvatar = new PopupWithForm({
     popupEditAvatar.loading(true);
     api.changeAvatar(inputValues)
       .then((userData) => {
-        userInfo._userAvatar.src = userData.avatar;
+        userInfo.setUserInfo({ avatar: userData.avatar });
         popupEditAvatar.close();
       })
       .catch((err) => {

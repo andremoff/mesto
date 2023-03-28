@@ -7,7 +7,16 @@ const popupAvatar = document.querySelector('#popup-edit-useravatar');
 const profileEditAvatar = document.querySelector('.profile__btn-avatar');
 const popupAddFoto = document.querySelector('#popup-add-foto');
 
+const settings = {
+  formSelector: '.popup__form',
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__btn-save',
+  inactiveButtonClass: 'popup__btn-save_inactive',
+  inputErrorClass: 'popup__input_type_error',
+  errorClass: 'popup__input-error_active',
+};
+
 export {
   popupName, popupDescription, profileAddBtn, profileOpenBtn,
-  profilePopup, popupAvatar, profileEditAvatar, popupAddFoto
+  profilePopup, popupAvatar, profileEditAvatar, popupAddFoto, settings
 };

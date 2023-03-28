@@ -1,4 +1,4 @@
-class Api {
+export default class Api {
   constructor(settings) {
     this._mainUrl = settings.mainUrl;
     this._headers = settings.headers;
@@ -87,14 +87,3 @@ class Api {
       .then(this._checkResponse);
   }
 }
-
-// Подключение к серверу //
-const api = new Api({
-  mainUrl: 'https://mesto.nomoreparties.co/v1/cohort-63',
-  headers: {
-    authorization: '844ed018-969b-42d1-ba36-a0d35313dedc',
-    'Content-Type': 'application/json'
-  }
-});
-
-export default api;
