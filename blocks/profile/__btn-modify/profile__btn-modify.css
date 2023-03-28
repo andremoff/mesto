@@ -12,6 +12,7 @@
   border-color: #FFF;
   border: 1px solid #FFF;
   cursor: pointer;
+  outline: transparent;
 }
 
 .profile__btn-modify:hover {

@@ -13,6 +13,7 @@
   margin-right: auto;
   padding: 0;
   cursor: pointer;
+  outline: transparent;
 }
 
 .profile__add-button:hover {

@@ -7,8 +7,10 @@
   background-color: transparent;
   background-repeat: no-repeat;
   padding: 0;
-  margin: auto;
+  margin-left: 0;
   margin-right: 20px;
+  margin-top: 22px;
+  margin-bottom: 0;
   color: inherit;
   font: inherit;
   border: none;

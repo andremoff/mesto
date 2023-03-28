@@ -15,21 +15,21 @@ export default class FormValidator {
     this._buttonElement = this._formElement.querySelector(this.data.submitButtonSelector);
   }
 
-  //Показываем подчеркивание и сообщение об ошибке//
+  // Показываем подчеркивание и сообщение об ошибке //
   _showInputError(inputElement, errorElement) {
     inputElement.classList.add(this.data.inputErrorClass);
     errorElement.textContent = inputElement.validationMessage;
     errorElement.classList.add(this.data.errorClass);
   }
 
-  //Скрываем подчеркивание и сообщение об ошибке//
+  // Скрываем подчеркивание и сообщение об ошибке //
   _hideInputError(inputElement, errorElement) {
     inputElement.classList.remove(this.data.inputErrorClass);
     errorElement.textContent = '';
     errorElement.classList.remove(this.data.errorClass);
   }
 
-  //Проверка валидности введенных данных//
+  // Проверка валидности введенных данных //
   _checkInputValidity(inputElement) {
     const errorElement = this._formElement.querySelector(`.${inputElement.id}-error`);
     if (!inputElement.validity.valid) {
@@ -40,7 +40,7 @@ export default class FormValidator {
     this._toggleButtonState();
   }
 
-  //Сброс формы от ошибок//
+  // Сброс формы от ошибок //
   resetForm() {
     this._inputList.forEach(inputElement => {
       const errorElement = this._formElement.querySelector(`.${inputElement.id}-error`);
@@ -50,12 +50,12 @@ export default class FormValidator {
     this._toggleButtonState();
   }
 
-  //Проверка на валидность данных ввода//
+  // Проверка на валидность данных ввода //
   _hasInvalidInput() {
     return this._inputList.some(inputElement => !inputElement.validity.valid);
   }
 
-  //Переключатель кнопки подтверждения//
+  // Переключатель кнопки подтверждения //
   _toggleButtonState() {
     if (this._hasInvalidInput()) {
       this._buttonElement.classList.add(this.data.inactiveButtonClass);
@@ -66,7 +66,7 @@ export default class FormValidator {
     }
   }
 
-  //Слушатели на поля ввода, кнопки и саму форму//
+  // Слушатели на поля ввода, кнопки и саму форму //
   _setEventListeners() {
     this._formElement.addEventListener('submit', evt => {
       evt.preventDefault();
