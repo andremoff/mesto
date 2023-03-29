@@ -16,7 +16,7 @@
 }
 
 .profile__btn-avatar:hover {
-  background-image: url(../../../src/images/avatar-pen-btn.svg);
+  background-image: url(../../../images/avatar-pen-btn.svg);
   background-color: rgba(0, 0, 0, 0.8);
   background-repeat: no-repeat;
   background-position: 50%;

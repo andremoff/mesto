@@ -1,4 +1,4 @@
-import '../../src/index.css';
+import '../../src/pages/index.css';
 
 // Импорт классов //
 import Api from '../components/Api.js';
@@ -125,16 +125,11 @@ const popupEditProfile = new PopupWithForm({
 popupEditProfile.setEventListeners();
 
 function openProfilePopup() {
-  api.getUserInfo()
-    .then((userData) => {
-      userInfo.setUserInfo(userData);
-      const userInfoData = userInfo.getUserInfo();
-      popupName.value = userInfoData.userName;
-      popupDescription.value = userInfoData.userDescription;
-      popupEditProfile.open();
-      profilePopupValidator.resetForm();
-    })
-    .catch((err) => console.log(err));
+  const userInfoData = userInfo.getUserInfo();
+  popupName.value = userInfoData.userName;
+  popupDescription.value = userInfoData.userDescription;
+  popupEditProfile.open();
+  profilePopupValidator.resetForm();
 }
 
 // Попап "Редактировать аватар пользователя" //
